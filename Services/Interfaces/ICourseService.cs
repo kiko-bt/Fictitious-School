@@ -11,5 +11,7 @@ namespace Services.Interfaces
     {
         IEnumerable<CourseViewModel> GetAllCourses();
         CourseViewModel GetCourseById(Guid id);
+
+        CourseViewModel CreateCourse(CourseViewModel courseViewModel);
     }
 }

@@ -19,28 +19,22 @@ namespace Persistence.Repositories
             return _db.Courses.SingleOrDefault(x => x.Id == id);
         }
 
-        public int Insert(Course entity)
+        public void Insert(Course entity)
         {
-             _db.Courses.Add(entity);
-            return _db.SaveChanges();
+            _db.Courses.Add(entity);
+            _db.SaveChanges();
         }
 
-        public int Update(Course entity)
+        public void Delete(Course entity)
+        {
+            _db.Courses.Remove(entity);
+            _db.SaveChanges();
+        }
+
+        public void Update(Course entity)
         {
             _db.Courses.Update(entity);
-            return _db.SaveChanges();
+            _db.SaveChanges();
         }
-
-        public int Delete(Guid id)
-        {
-            Course course = _db.Courses.SingleOrDefault(x => x.Id == id);
-
-            if (course == null)
-                return -1;
-
-            _db.Courses.Remove(course);
-            return _db.SaveChanges();
-        }
-
     }
 }

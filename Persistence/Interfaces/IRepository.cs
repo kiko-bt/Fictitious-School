@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using WebModels;
 
 namespace Persistence.Repositories
 {
@@ -7,8 +8,8 @@ namespace Persistence.Repositories
     {
         IEnumerable<T> GetAll();
         T GetById(Guid id);
-        int Insert(T entity);
-        int Update(T entity);
-        int Delete(Guid id);
+        void Insert(T entity);
+        void Update(T entity);
+        void Delete(T entity);
     }
 }

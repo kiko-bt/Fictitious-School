@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Persistence;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace API.Controllers
@@ -31,6 +30,14 @@ namespace API.Controllers
         public async Task<ActionResult<Course>> GetCourse(Guid id)
         {
             return await _context.Courses.FindAsync(id);
+        }
+
+        [HttpPost]
+        public IActionResult CreateCourse(Course course)
+        {
+            _context.Courses.Add(course);
+            _context.SaveChanges();
+            return Ok(course);
         }
     }
 }

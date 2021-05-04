@@ -45,5 +45,21 @@ namespace Services.Services
                 throw new Exception(message);
             }
         }
+
+
+        public CourseViewModel CreateCourse(CourseViewModel courseViewModel)
+        {
+            IEnumerable<Course> course = _courseRepository.GetAll();
+            CourseViewModel mappedCourses = _mapper.Map<CourseViewModel>(course);
+
+
+
+
+            return mappedCourses;
+        }
+
+
+
+
     }
 }
