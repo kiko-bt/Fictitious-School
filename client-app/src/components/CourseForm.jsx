@@ -19,7 +19,7 @@ const CourseForm = () => {
     axios
       .post(url, data)
       .then((response) => {
-        console.log(response);
+        setData(response);
       })
       .catch((error) => {
         console.log(error);
